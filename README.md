@@ -30,6 +30,7 @@ When utilizing a system-wide WireGuard VPN, this tool facilitates the creation o
    ```
 
 3. Install the systemd system service (optional):
+   ```bash
    # Update wg-quick@INTERFACE.service with your interface name, in both places
    sudo cp escape-pod.service /etc/systemd/system/
    sudo systemctl daemon-reload
