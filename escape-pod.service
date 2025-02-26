@@ -1,0 +1,14 @@
+[Unit]
+Description=Escape Pod - Network namespace for bypassing Wireguard VPN
+After=network.target network-online.target wg-quick@INTERFACE.service
+Wants=network-online.target
+Requires=wg-quick@INTERFACE.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/escape-pod setup
+ExecStop=/usr/local/bin/escape-pod cleanup
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target
